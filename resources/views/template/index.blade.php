@@ -37,7 +37,7 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Produk</span>
                         <span class="info-box-number">
-                            0
+                            {{ $produk_obat + $produk_herbal}}
                         </span>
                     </div>
 
@@ -89,6 +89,22 @@
                     <div class="info-box-content">
                         <span class="info-box-text">User</span>
                         <span class="info-box-number">{{ $user }}</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-purple color-palette elevation-1">
+                        <a href="#">
+                            <i class="fa-sharp fa-solid fa-hospital"></i>
+                        </a>
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Supplier</span>
+                        <span class="info-box-number">{{ $supplier }}</span>
                     </div>
 
                 </div>

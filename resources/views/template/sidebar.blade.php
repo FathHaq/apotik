@@ -114,9 +114,43 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.index.ph') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Produk Herbal</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa-solid fa-book-medical"></i>
+                        <p>
+                            Data
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('sp.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Supplier</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fa-solid fa-book-open"></i>
+                        <p>
+                            Laporan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('ldb.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Data Barang</p>
                             </a>
                         </li>
                     </ul>

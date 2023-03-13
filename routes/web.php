@@ -6,7 +6,10 @@ use App\Http\Controllers\Admin\ItemProdukController;
 use App\Http\Controllers\Admin\JenisProdukController;
 use App\Http\Controllers\Admin\KategoriHerbalController;
 use App\Http\Controllers\Admin\KategoriObatController;
+use App\Http\Controllers\Admin\LaporanDataBarangController;
+use App\Http\Controllers\Admin\ProdukHerbalController;
 use App\Http\Controllers\Admin\ProdukObatController;
+use App\Http\Controllers\Admin\SupplierController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BaseController;
@@ -14,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Middleware\PenggunaMiddleware;
 use App\Models\KategoriObat;
+use App\Models\Supplier;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +86,31 @@ Route::prefix('b')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/obat/baru', 'baruobat')->name('obat.baru');
         Route::post('/obat/add', 'addobat')->name('obat.tambah');
         Route::delete('/obat/hapus', 'hapusobat')->name('obat.hapus');
+        Route::get('/obat/edit/{id}', 'editobat')->name('obat.edit');
+        Route::put('/obat/update/{id}', 'updateobat')->name('obat.update');
+        Route::get('/obat/detail/{id}', 'detailobat')->name('obat.detail');
+    });
+    Route::controller(ProdukHerbalController::class)->group(function () {
+        Route::get('/produk-herbal', 'produkherbal')->name('admin.index.ph');
+        Route::get('/herbal/baru', 'baruherbal')->name('herbal.baru');
+        Route::post('/herbal/add', 'addherbal')->name('herbal.tambah');
+        Route::delete('/herbal/hapus', 'hapusherbal')->name('herbal.hapus');
+        Route::get('/herbal/edit/{id}', 'editherbal')->name('herbal.edit');
+        Route::put('/herbal/update/{id}', 'updateherbal')->name('herbal.update');
+        Route::get('/herbal/detail/{id}', 'detailherbal')->name('herbal.detail');
+    });
+    Route::controller(SupplierController::class)->group(function () {
+        Route::get('/supplier', 'supplier')->name('sp.index');
+        Route::post('/supplier/create', 'tambahsp')->name('sp.tambah');
+        Route::put('/supplier/update', 'updatesp')->name('sp.update');
+        Route::delete('/supplier/hapus', 'hapussp')->name('sp.hapus');
+    });
+    Route::controller(LaporanDataBarangController::class)->group(function () {
+        Route::get('/laporan-data-barang', 'ldb')->name('ldb.index');
+        Route::post('/laporan-data-barang/create', 'tambahldb')->name('ldb.tambah');
+        Route::delete('/laporan-data-barang/hapus', 'hapusldb')->name('ldb.hapus');
+        Route::get('/laporan-data-barang/edit/{id}', 'editldb')->name('ldb.edit');
+        Route::put('/laporan-data-barang/update/{id}', 'updateldb')->name('ldb.update');
     });
 });
 // End Akses Admin
